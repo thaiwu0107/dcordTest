@@ -675,19 +675,6 @@ describe('GamaUtils', () => {
             expected(get).to.deep.equal(4);
         });
     });
-    describe('Encryption_AES_ECB_128()', () => {
-        it('1.EncryptionUse_AES_ECB_128', () => {
-            const a = GamaUtils.Encryption_AES_ECB_128('011582101795324289');
-            expected(a).to.eql('00001CEC6A471B28ABC8ABB6E737B11833AF7229E332DBC8CF5A284644707E58');
-        });
-    });
-    describe('DecryptionUse_AES_ECB_128()', () => {
-        it('1.DecryptionUse_AES_ECB_128', () => {
-            const a =
-                GamaUtils.Decryption_AES_ECB_128('00001CEC6A471B28ABC8ABB6E737B11833AF7229E332DBC8CF5A284644707E58');
-            expected(a).to.eql('011582101795324289');
-        });
-    });
     describe('deeplyToCamelCase()', () => {
         it('1.json obj', () => {
             const data = {

@@ -1,5 +1,5 @@
 {
-    "name": "api-server",
+    "name": "redis-api-server",
     "version": "0.0.1",
     "description": "RESTful API Server used TypeScript",
     "main": "./lib/index.js",

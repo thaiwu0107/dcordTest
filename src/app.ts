@@ -91,16 +91,16 @@ export default class GServer {
                         })
                             .use(cors({
                                 origin: async (ctx) => {
-                                    const withoutHttpsIP = _.replace(ctx.request.header.origin, 'https://', '');
-                                    const ip = _.split(withoutHttpsIP, ':', 1)[0];
-                                    const findIP = await redis.get(ip);
-                                    if (_.isUndefined(findIP)) {
-                                        redis.set(ip, 1, 'EX', 60);
-                                    } else if (_.toNumber(findIP) > 60) {
-                                        ctx.throw(422, new Error('ERROR'));
-                                    } else {
-                                        redis.set(ip, _.toNumber(findIP) + 1);
-                                    }
+                                    // const withoutHttpsIP = _.replace(ctx.request.header.origin, 'https://', '');
+                                    // const ip = _.split(withoutHttpsIP, ':', 1)[0];
+                                    // const findIP = await redis.get(ip);
+                                    // if (_.isUndefined(findIP)) {
+                                    //     redis.set(ip, 1, 'EX', 60);
+                                    // } else if (_.toNumber(findIP) > 60) {
+                                    //     ctx.throw(422, new Error('ERROR'));
+                                    // } else {
+                                    //     redis.set(ip, _.toNumber(findIP) + 1);
+                                    // }
                                     if (_.isUndefined(corsWhitelist) ||
                                         _.size(corsWhitelist) === 0) {
                                         return '*';
