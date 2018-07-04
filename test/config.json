@@ -1,0 +1,13 @@
+{
+    "reporterEnabled": "spec, mochawesome",
+    "mochawesomeReporterOptions": {
+        "reportDir": "",
+        "quiet": true,
+        "reportFilename": "apidoc",
+        "reportTitle": "Gama API Server APIDoc List",
+        "reportPageTitle": "Gama API Server APIDoc List",
+        "inlineAssets": true,
+        "overwrite": true,
+        "json": false
+    }
+}

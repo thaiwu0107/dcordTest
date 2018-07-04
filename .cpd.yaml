@@ -1,0 +1,18 @@
+#.cpd.yaml 
+languages:
+  - typescript
+files:
+  - "src/**/*"
+exclude:
+  - "**/*.min.js"
+  - "src/context/MemberAck/**/*.ts"
+  - "src/context/MemberAck/*.ts"
+  - "**/*.mm.js"
+reporter: json
+ 
+languages-exts:
+    javascript:
+        - es
+        - es5
+        - es6
+        - es7

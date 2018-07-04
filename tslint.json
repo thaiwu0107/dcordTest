@@ -1,0 +1,76 @@
+{
+    "defaultSeverity": "error",
+    "extends": "tslint:latest",
+    "cliOptions": {
+        "exclude": [
+            "src/config/",
+            "src/context/MemberAckDao.ts",
+            "src/context/**/*.ts",
+            "src/tools/*.ts"
+        ]
+    },
+    "linterOptions": {
+        "exclude": [
+            "src/config/",
+            "src/context/MemberAckDao.ts",
+            "src/context/**/*.ts",
+            "src/tools/*.ts",
+            "src/sqlTemplate/*.sql",
+            "src/sqlTemplate/*/*.sql",
+            "lib/**"
+        ]
+    },
+    "jsRules": {},
+    "rules": {
+        "no-bitwise": false,
+        "no-return-await": true,
+        "no-duplicate-switch-case": true,
+        "no-implicit-dependencies": false,
+        "no-this-assignment": false,
+        "no-object-literal-type-assertion": false,
+        "one-line": [
+            true,
+            "check-catch",
+            "check-finally",
+            "check-else",
+            "check-open-brace",
+            "check-whitespace"
+        ],
+        "member-ordering": [
+            false
+        ],
+        "object-literal-sort-keys": false,
+        "no-console": [
+            false
+        ],
+        "no-unused-variable": false,
+        "curly": true,
+        "jsdoc-format": true,
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "no-duplicate-imports": true,
+        "no-null-keyword": true,
+        "no-duplicate-variable": true,
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore"
+        ]
+    },
+    "rulesDirectory": [],
+    "autoFixOnSave": true
+}

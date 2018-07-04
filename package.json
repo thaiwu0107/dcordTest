@@ -1,0 +1,173 @@
+{
+    "name": "api-server",
+    "version": "0.0.1",
+    "description": "RESTful API Server used TypeScript",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "scripts": {
+        "precommit": "lint-staged && npm test",
+        "test": "nyc ./node_modules/.bin/mocha --require ts-node/register --recursive",
+        "test:debug": "mocha --inspect --debug-brk --not-timeouts ts:ts-node/register src/**/*.spec.ts",
+        "tslint": "tslint src/**/*.ts",
+        "clear": "rm -rf package-lock.json && rm -rf node_modules && npm cache clean -f && npm prune &&  npm install && npm run rebuild:context",
+        "start:rebuild": "npm run clear && npm run start:live",
+        "duplicated": "./node_modules/.bin/jscpd --config .cpd.yaml",
+        "preversion": "npm test",
+        "version": "git add -A .",
+        "postversion": "git push && git push --tags"
+    },
+    "keywords": [
+        "RESTful",
+        "TypeScript"
+    ],
+    "author": "ThaiWu",
+    "license": "ISC",
+    "dependencies": {
+        "bignumber.js": "7.2.1",
+        "class-validator": "0.8.5",
+        "cors": "2.8.4",
+        "find-up": "3.0.0",
+        "inversify": "4.13.0",
+        "inversify-binding-decorators": "4.0.0",
+        "inversify-koa-utils": "1.0.0",
+        "inversify-logger-middleware": "3.1.0",
+        "inversify-tracer": "1.2.0",
+        "ioredis": "^3.2.2",
+        "jsonwebtoken": "8.3.0",
+        "klaw": "2.1.1",
+        "koa": "2.5.1",
+        "koa-bodyparser": "4.2.1",
+        "koa-csrf": "3.0.6",
+        "koa-jwt": "3.3.2",
+        "koa-log4": "2.3.0",
+        "koa-multer": "1.0.2",
+        "koa-req-validator": "0.2.1",
+        "koa-router": "7.4.0",
+        "koa2-cors": "2.0.5",
+        "lodash": "4.17.10",
+        "lodash-joins": "3.0.0-beta.2",
+        "log4js": "2.10.0",
+        "moment": "2.22.2",
+        "moment-range": "4.0.1",
+        "reflect-metadata": "0.1.12",
+        "request": "^2.87.0",
+        "uuid-with-v6": "1.1.2",
+        "validator": "9.4.1",
+        "ws": "5.2.1"
+    },
+    "devDependencies": {
+        "@types/validator": "9.4.1",
+        "@types/chai": "4.1.4",
+        "@types/ioredis": "^3.2.11",
+        "@types/jsonwebtoken": "7.2.8",
+        "@types/klaw": "2.1.1",
+        "@types/koa": "2.0.46",
+        "@types/koa-bodyparser": "5.0.0",
+        "@types/koa-router": "7.0.30",
+        "@types/lodash": "4.14.110",
+        "@types/mocha": "5.2.4",
+        "@types/node": "10.5.1",
+        "@types/request": "^2.47.1",
+        "babel-plugin-istanbul": "^4.1.6",
+        "chai": "4.1.2",
+        "connect": "3.6.6",
+        "coveralls": "3.0.2",
+        "fury": "3.0.0-beta.7",
+        "glob": "7.1.2",
+        "gulp": "3.9.1",
+        "husky": "v0.15.0-rc.7",
+        "install-peers": "1.0.2",
+        "js-beautify": "1.7.5",
+        "js-yaml": "3.12.0",
+        "jscpd": "0.6.22",
+        "lint-staged": "7.2.0",
+        "minimatch": "3.0.4",
+        "mocha": "5.2.0",
+        "mocha-multi-reporters": "1.1.7",
+        "mocha-typescript": "^1.1.16",
+        "mochawesome": "3.0.2",
+        "nodemon": "1.17.5",
+        "nyc": "^12.0.2",
+        "opener": "1.4.3",
+        "source-map-support": "0.5.6",
+        "tap-nyc": "^1.0.3",
+        "ts-mockito": "2.3.0",
+        "ts-node": "7.0.0",
+        "tslint": "5.10.0",
+        "typedoc": "^0.11.1",
+        "typescript": "2.9.2"
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "tslint"
+        ]
+    },
+    "nodemonConfig": {
+        "ignore": [
+            "src/tools/*"
+        ]
+    },
+    "nyc": {
+        "include": [
+            "src/**/*.ts"
+        ],
+        "extension": [
+            ".ts"
+        ],
+        "require": [
+            "ts-node/register"
+        ],
+        "exclude": [
+            "**/*.d.ts",
+            "src/config/",
+            "src/middlewares/",
+            "src/sqlTemplate/",
+            "src/app.ts",
+            ".nyc_output/",
+            ".vscode/",
+            "config/",
+            "coverage/",
+            "doc/",
+            "logs/",
+            "mock/",
+            "node_modules/",
+            "test/",
+            "*.js",
+            "*.json",
+            "src/models/",
+            "src/utils/DaoOperator.ts",
+            "src/index.ts",
+            "src/ioc/"
+        ],
+        "reporter": [
+            "lcov",
+            "text",
+            "text-summary"
+        ],
+        "watermarks": {
+            "lines": [
+                80,
+                95
+            ],
+            "functions": [
+                80,
+                95
+            ],
+            "branches": [
+                80,
+                95
+            ],
+            "statements": [
+                80,
+                95
+            ]
+        },
+        "check-coverage": false,
+        "sourceMap": true,
+        "cache": false,
+        "exclude-after-remap": false,
+        "report-dir": "./coverage",
+        "instrument": true,
+        "all": true
+    }
+}

@@ -1,0 +1,1 @@
+select SYSDATETIMEOFFSET() AS TS
