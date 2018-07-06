@@ -58,15 +58,9 @@ jspm_packages/
 node_modules/
 .idea/
 *.iml
-src/tools/*.json
 logs/
 putoff/
 apidoc.json
-src/config/genDatabaseConfig.json
-tempdf/**/*.pdf
-tempdf/**
-!tempdf/fortest
-!tempdf/fortest/*.pdf
 
 # sonar
 ./scannerwork
