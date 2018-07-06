@@ -13,10 +13,12 @@
 
 ## 測試
 直接執行即可,每次precommit也會自動跑npm test
+
     npm test
 
 
 ## 執行
 直接執行即可,每次precommit也會自動跑npm test
+
     npm i
     npm start
