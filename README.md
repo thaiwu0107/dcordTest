@@ -10,3 +10,13 @@
 
 這一整套建置都是我自己完成的,再交給其他同事去開發,只需要開發service的內容即可
 然後還有其他sql等等操作的核心內容都被我拔掉了,因為沒用到也不需要放進來
+
+## 測試
+直接執行即可,每次precommit也會自動跑npm test
+    npm test
+
+
+## 執行
+直接執行即可,每次precommit也會自動跑npm test
+    npm i
+    npm start
