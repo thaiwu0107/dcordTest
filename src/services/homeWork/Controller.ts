@@ -16,6 +16,7 @@ export default class TestController extends BaseController {
         let withoutHttpsIP = _.replace(ctx.request.header.origin, 'http://', '');
         withoutHttpsIP = _.replace(ctx.request.header.origin, 'https://', '');
         const ip = _.split(withoutHttpsIP, ':', 1)[0];
+        console.log('ctx', ctx);
         ctx.body = new BaseResponse(await this.service.test(ip));
     }
 }
