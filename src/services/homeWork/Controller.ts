@@ -13,8 +13,8 @@ export default class TestController extends BaseController {
 
     @httpGet('/')
     public async test(ctx: IContext) {
-        let withoutHttpsIP = _.replace(ctx.request.header.origin, 'http://', '');
-        withoutHttpsIP = _.replace(ctx.request.header.origin, 'https://', '');
+        let withoutHttpsIP = _.replace(ctx.request.header['x-forwarded-for'], 'http://', '');
+        withoutHttpsIP = _.replace(ctx.request.header['x-forwarded-for'], 'https://', '');
         const ip = _.split(withoutHttpsIP, ':', 1)[0];
         console.log('ctx', ctx);
         ctx.body = new BaseResponse(await this.service.test(ip));
