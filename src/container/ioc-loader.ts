@@ -1,1 +1,1 @@
-export * from '../homeWork/Controller';
+export * from '../services/homeWork/Controller';
