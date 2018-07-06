@@ -11,9 +11,7 @@ export default class Service extends BaseService {
         @inject('TestRepository') private repository: Repository) { super(); }
 
     public async test(ip: string): Promise<any> {
-        console.log('ip', ip);
         const getip = await this.repository.getIP(ip);
-        console.log('getip', getip);
         if (_.isNull(getip)) {
             await this.repository.setIP(ip, 1, 60);
             return { times: 1 };
