@@ -139,13 +139,14 @@ export default class GServer {
                             next();
                         });
                     });
-                this.koaServer = server.build().listen(httpPort);
+                const rPort = process.env.PORT || httpPort;
+                this.koaServer = server.build().listen(rPort);
                 if (!_.isUndefined(this.serverInitOnceEvents) && _.size(this.serverInitOnceEvents) !== 0) {
                     _.forEach(this.serverInitOnceEvents, (element) => {
                         element.init();
                     });
                 }
-                log.info('Http started listening on http://localhost:%s ...', httpPort);
+                log.info('Http started listening on http://localhost:%s ...', rPort);
             })
             .catch((e) => {
                 log.error(e);
