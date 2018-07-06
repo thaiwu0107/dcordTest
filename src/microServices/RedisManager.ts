@@ -7,7 +7,8 @@ import { provide } from '../ioc/ioc';
 const _log = log4js.getLogger('RedisManger');
 @provide('RedisManger')
 export default class RedisManger {
-    protected redis = new Redis();
+    // tslint:disable-next-line:max-line-length
+    protected redis = new Redis('redis://h:pcdd8e5327bca3986bb6149fb6bc58104e388b8d1c8ca295cb4cabfaf0407b4b1@ec2-52-5-128-246.compute-1.amazonaws.com:36069');
     constructor() {
         const changePromis: any = this.redis;
         changePromis.Promise = global.Promise;
