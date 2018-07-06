@@ -1,12 +1,12 @@
-import { GamaHttpStatusCode } from '../config/GamaHttpStatusCode';
+import { BaseHttpStatusCode } from '../config/BaseHttpStatusCode';
 
 export default class NotImplemented {
     // tslint:disable-next-line:variable-name
-    public status: GamaHttpStatusCode = GamaHttpStatusCode.Mock_Data;
+    public status: BaseHttpStatusCode = BaseHttpStatusCode.Mock_Data;
     public message: any;
     // Not yet implemented
     constructor(msg?: any) {
-        this.status = GamaHttpStatusCode.Mock_Data;
+        this.status = BaseHttpStatusCode.Mock_Data;
         this.message = msg ? msg : {};
     }
 }

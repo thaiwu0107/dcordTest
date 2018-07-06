@@ -1,0 +1,23 @@
+{
+    "name": "gcms3-accounting-api",
+    "version": "1.0.0",
+    "description": "GCMS3 Accounting API 文件",
+    "main": "index.js",
+    "scripts": {
+        "prestart": "npm install",
+        "start": "node index.js"
+    },
+    "keywords": [
+        "swagger"
+    ],
+    "license": "Unlicense",
+    "private": true,
+    "dependencies": {
+        "connect": "^3.6.6",
+        "js-yaml": "^3.12.0",
+        "opener": "^1.4.3",
+        "swagger-tools": "0.10.3",
+        "typedoc": "^0.11.1"
+    },
+    "devDependencies": {}
+}

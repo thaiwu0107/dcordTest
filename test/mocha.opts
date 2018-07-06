@@ -9,4 +9,5 @@
 --timeout 50000
 --ui mocha-typescript
 --colors
-test/**/*.spec.ts
+src/services/**/*.spec.ts
+src/utils/*.spec.ts

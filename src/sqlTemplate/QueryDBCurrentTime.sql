@@ -1,1 +1,0 @@
-select SYSDATETIMEOFFSET() AS TS

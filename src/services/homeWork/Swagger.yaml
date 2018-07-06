@@ -1,0 +1,40 @@
+paths:
+  '/test/':
+    get:
+      tags:
+        - test
+      summary: 'test'
+      description: 'test'
+      deprecated: false
+      responses:
+        '200':
+          description: '目前requests次數'
+          schema:
+            type: object
+            required:
+              - status
+              - result
+            properties:
+              status:
+                type: integer
+                format: int32
+                enum:
+                  - 1
+                default: 1
+                example: 1
+              result:
+                type: object
+                properties:
+                  times:
+                    description: '次數'
+                    type: integer
+                    format: int32
+                    minimum: 1
+                    default: 1
+                    example: 1
+                  message:
+                    description: '超過次數只秀訊息'
+                    type: string
+                    default: 'ERROR'
+                    example: 'ERROR'
+    

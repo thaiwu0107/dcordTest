@@ -2,7 +2,6 @@ import * as log4js from 'koa-log4';
 import * as _ from 'lodash';
 import log4jsConfig from '../../config/config.log4js';
 
-// configure log4js
 log4js.configure(log4jsConfig);
 
 const DEFAULT_FORMAT = '[:response-time ms] :userid - ' +
@@ -27,7 +26,6 @@ export default () => {
 
 function getLogger(name: string) {
     const logger = log4js.getLogger(name);
-    // logger.addContext('user', 'Mike'); // TODO : how to get ctx.state.user ??
     return logger;
 }
 

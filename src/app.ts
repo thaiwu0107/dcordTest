@@ -11,10 +11,11 @@ import * as Router from 'koa-router';
 import * as cors from 'koa2-cors';
 import * as _ from 'lodash';
 import * as defConfig from './config/defconfig';
+import './container/ioc-loader';
 import { container } from './ioc/ioc';
 import IocTracer from './ioc/iocTracer';
 import koaLog4js from './middlewares/logger/log4js';
-import GamaResponse from './models/GamaResponse';
+import BaseResponse from './models/BaseResponse';
 import InitSetting from './models/InitSetting';
 import IServerInitOnceEvent from './ServerEvent/ServerInitOnceEvent';
 
@@ -53,10 +54,8 @@ export default class GServer {
                 iocTracer.apply(container);
             }
         }
-        this.main = Promise.resolve(new Redis(initSetting.pathdb))
-            .then((redis) => {
-                const changePromis: any = redis;
-                changePromis.Promise = global.Promise;
+        this.main = Promise.resolve(1)
+            .then(() => {
                 const rootRouter = new Router({
                     prefix: _.isUndefined(domainName) ? '' : domainName
                 });
@@ -68,7 +67,7 @@ export default class GServer {
                             try {
                                 await next();
                             } catch (err) {
-                                const response = new GamaResponse(err.message);
+                                const response = new BaseResponse(err.message);
                                 const statusArray = _.map(_.toString(err.status));
                                 if (_.size(statusArray) === 4 &&
                                     statusArray[0] in ['8', '9', '7', '6', '5', '4', '3', '2', '1', '0']) {
@@ -163,3 +162,15 @@ export default class GServer {
         return this.koaServer;
     }
 }
+const setting = new InitSetting();
+setting.log4 = koaLog4js;
+// setting.domainName = config.domainName;
+setting.jwtActive = false;
+setting.unlessPath = [
+    /^\/accounting\/example/,
+    /^\/accounting\/operator\/login/,
+    /^\/accounting\/operator\/exit/,
+    /^\/accounting\/cashless\/patron\/image/
+];
+
+new GServer(setting).start();

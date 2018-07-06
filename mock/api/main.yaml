@@ -1,0 +1,57 @@
+swagger: '2.0'
+info:
+  description: GCMS3 Accounting API 文件
+  version: 1.0.0
+  title: GCMS3 Accounting API
+host: '127.0.0.1:3000'
+produces:
+  - application/json;
+consumes:
+  - application/json; charset=utf-8
+securityDefinitions:
+  JWT:
+    description: ""
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+security:
+  - JWT: []
+schemes:
+  - http
+definitions:
+  JWT:
+    type: "object"
+    properties:
+      operatorSerial:
+        type: "integer"
+        format: "int32"
+      operatorName:
+        type: "string"
+      groupSerial:
+        type: "integer"
+        format: "int32"
+      status:
+        type: "integer"
+        format: "int32"
+      loginFail:
+        type: "integer"
+        format: "int32"
+      lastPWChangedTime:
+        type: "integer"
+        format: "int32"
+      actionSection:
+        type: "string"
+      workstationID:
+        type: "integer"
+        format: "int32"
+      sessionSerial:
+        type: "integer"
+        format: "int32"
+      isSessionOpen:
+        type: "boolean"
+        description: "從UserInfo取值,不會出現在JWT資訊裡"
+      token:
+        type: "string"
+    xml:
+      name: "JWT"
+paths:

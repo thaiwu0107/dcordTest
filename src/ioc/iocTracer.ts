@@ -1,4 +1,3 @@
-import { interfaces } from 'inversify-koa-utils';
 import { CallInfo, InversifyTracer, ReturnInfo } from 'inversify-tracer';
 import 'reflect-metadata';
 
@@ -8,8 +7,8 @@ import * as log4js from 'koa-log4';
 import * as _ from 'lodash';
 import { EnumTracerconfigSetting, getEnumTracerconfigSetting } from '../config/EnumTracerconfig';
 import AnyEntity from '../models/AnyEntity';
-import GamaEntity from '../models/GamaEntity';
-import GamaUtils from '../utils/GamaUtils';
+import GamaEntity from '../models/BaseEntity';
+import GamaUtils from '../utils/BaseUtils';
 
 const _log = log4js.getLogger('Tracer');
 

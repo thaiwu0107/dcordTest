@@ -1,12 +1,7 @@
 import { Container, inject } from 'inversify';
-import { autoProvide, buildProviderModule, fluentProvide, provide } from 'inversify-binding-decorators';
-import { interfaces, InversifyKoaServer, TYPE } from 'inversify-koa-utils';
+import { autoProvide, fluentProvide, provide } from 'inversify-binding-decorators';
 import 'reflect-metadata';
 
-import * as log4js from 'koa-log4';
-import * as _ from 'lodash';
-
-// set up container
 const container = new Container();
 const provideNamed = (identifier, name) => {
     return fluentProvide(identifier)

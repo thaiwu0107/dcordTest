@@ -1,9 +1,8 @@
-import * as _ from 'lodash';
-import { GamaHttpStatusCode } from '../config/GamaHttpStatusCode';
-import GamaExceptions from './GamaExceptions';
+import { BaseHttpStatusCode } from '../config/BaseHttpStatusCode';
+import BaseExceptions from './BaseExceptions';
 
-export class LibsExceptions extends GamaExceptions<GamaHttpStatusCode> {
-    protected setType(): GamaHttpStatusCode {
-        return GamaHttpStatusCode as any;
+export class LibsExceptions extends BaseExceptions<BaseHttpStatusCode> {
+    protected setType(): BaseHttpStatusCode {
+        return BaseHttpStatusCode as any;
     }
 }
