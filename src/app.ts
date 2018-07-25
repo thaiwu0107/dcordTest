@@ -88,30 +88,7 @@ export default class GServer {
                                 ctx.body = response;
                             }
                         })
-                            .use(cors({
-                                origin: async (ctx) => {
-                                    // const withoutHttpsIP = _.replace(ctx.request.header.origin, 'https://', '');
-                                    // const ip = _.split(withoutHttpsIP, ':', 1)[0];
-                                    // const findIP = await redis.get(ip);
-                                    // if (_.isUndefined(findIP)) {
-                                    //     redis.set(ip, 1, 'EX', 60);
-                                    // } else if (_.toNumber(findIP) > 60) {
-                                    //     ctx.throw(422, new Error('ERROR'));
-                                    // } else {
-                                    //     redis.set(ip, _.toNumber(findIP) + 1);
-                                    // }
-                                    if (_.isUndefined(corsWhitelist) ||
-                                        _.size(corsWhitelist) === 0) {
-                                        return '*';
-                                    } else if (_.includes(corsWhitelist, ctx.header.origin)) {
-                                        return '*';
-                                    } else {
-                                        ctx.status = 404;
-                                        ctx.throw(422, new Error('Not Allow Cors'));
-                                        return false;
-                                    }
-                                }
-                            }))
+                            .use(cors())
                             .use(log4())
                             .use(multer({
                                 storage: multer.memoryStorage()
@@ -165,13 +142,9 @@ export default class GServer {
 }
 const setting = new InitSetting();
 setting.log4 = koaLog4js;
-// setting.domainName = config.domainName;
 setting.jwtActive = false;
 setting.unlessPath = [
-    /^\/accounting\/example/,
-    /^\/accounting\/operator\/login/,
-    /^\/accounting\/operator\/exit/,
-    /^\/accounting\/cashless\/patron\/image/
+    /^\/accounting\/example/
 ];
 
 new GServer(setting).start();
